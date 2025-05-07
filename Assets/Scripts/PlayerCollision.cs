@@ -19,4 +19,5 @@ public class PlayerCollision : MonoBehaviour
             collision.transform.SetParent(null);
         }
     }
+
 }

@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class HealthGetter : MonoBehaviour
+    
 {
-    TextMeshProUGUI text;
 
-    // Start is called before the first frame update
+    public int maxHealth = 100;
+    public int currentHealth;
+
+
+    TextMeshProUGUI text;
     void Start()
     {
-        text = GetComponent<TextMeshProUGUI>();
+        text = GetComponent<TextMeshProUGUI>(); 
     }
 
-    public void ChangeHealth(string Health)
+    public void ChangeHealth(string health)
     {
-        text.text = Health;
+       text.text = health;
     }
 }

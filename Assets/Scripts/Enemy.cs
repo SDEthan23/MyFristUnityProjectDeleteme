@@ -1,9 +1,13 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
     public bool destroyOnCollision = false;
     public int damageToPlayer = 10;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,16 +19,22 @@ public class Enemy : MonoBehaviour
 
     private void DealDamageToPlayer(Collider2D player)
     {
-        PlayerHealth playerHealth = player.gameObject.GetComponent<PlayerHealth>();
+        Player_Health playerHealth = player.GetComponent<Player_Health>();
 
-        if (playerHealth != null)
+        if(playerHealth != null)
         {
             playerHealth.TakeDamage(damageToPlayer);
         }
 
         if (destroyOnCollision)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
+
         }
+    }
+
+    void Update()
+    {
+         
     }
 }

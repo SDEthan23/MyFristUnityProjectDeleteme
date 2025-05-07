@@ -1,32 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerSoundScript : MonoBehaviour
+public class Player_SoundScript : MonoBehaviour
 {
-    public AudioClip jumpClip;
-    public AudioClip deathclip;
-
-
     [Header("Sound Sources")]
     public AudioClip jumpClip;
     public List<AudioClip> randomContainerLand;
 
-    [Header("Sound Setting")]
-    public float jumpvolume = 0.5;
-    public float Landvolum = 0.5;
+    [Header("Sound Settings")]
+    public float jumpVolume = 0.5f;
+    public float landVolume = 0.5f;
 
     private AudioSource _source;
-    private float landVolume;
-    private float jumpVolume;
-
-    void Start()
+    private void Start()
     {
         _source = GetComponent<AudioSource>();
         _source.clip = jumpClip;
         _source.loop = false;
         _source.playOnAwake = false;
+        
+
     }
+
+
 
     public void PlayerJumpSound()
     {
@@ -34,12 +32,13 @@ public class PlayerSoundScript : MonoBehaviour
         _source.volume = jumpVolume;
         _source.Play();
     }
-
-    public void PlayerRandomLandSource()
+    public void PlayerRandomLandSound()
     {
-       int index = Random.Range(0, randomContainerLand.Count);
+        int index = Random.Range(0,randomContainerLand.Count );
         _source.clip = randomContainerLand[index];
         _source.volume = landVolume;
         _source.Play();
     }
 }
+
+
